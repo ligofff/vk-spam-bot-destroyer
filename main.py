@@ -25,7 +25,7 @@ async def echo(event: SimpleBotEvent) -> str:
     if ACTIVE_STATUS_CHECK_COMMAND in event.text:
         return STATUS_CHECK_RESPONSE
 
-    for link in ["vk.com/", "https://", "http://", "vk.me/", "vk.cc/", "t.me/"]:
+    for link in ["vk.com/", "https://", "http://", "vk.me/", "vk.cc/", "t.me/", ".com", ".net", ".ru"]:
         if link in event.text:
             print("Link detected! Check...")
 
