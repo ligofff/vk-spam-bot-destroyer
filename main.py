@@ -18,9 +18,11 @@ bot = SimpleLongPollBot(tokens=TOKEN, group_id=GROUP_ID)
 
 @bot.message_handler()
 async def echo(event: SimpleBotEvent) -> str:
+
     user_data = (await event.api_ctx.users.get(user_ids=event.object.object.message.from_id)).response[0]
     print("New message from " + user_data.first_name + " " + user_data.last_name + ": " + event.text)
-    if len(event.text) > 0 and str2bool(use_webhook) and webhook_url is not None and len(webhook_url) > 0:
+
+    if (len(event.text) > 0) and str2bool(use_webhook):
         send_webhook('Новое сообщение от ' + user_data.first_name + " " + user_data.last_name + ': ' + event.text)
 
     if ACTIVE_STATUS_CHECK_COMMAND in event.text:
