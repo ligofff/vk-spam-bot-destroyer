@@ -59,7 +59,7 @@ def send_webhook(text):
     data = {'content': text}
     try:
         requests.post(webhook_url, data=json.dumps(data), headers={'Content-Type': 'application/json'}, timeout=1)
-    except requests.exceptions.ReadTimeout:
+    except Exception as e:
         pass
 
 
