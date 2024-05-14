@@ -42,7 +42,7 @@ async def echo(event: SimpleBotEvent) -> str:
 
             join_date = datetime.datetime.fromtimestamp(member.join_date)
 
-            delta_date = datetime.datetime.now(datetime.UTC) - join_date
+            delta_date = datetime.datetime.utcnow() - join_date
 
             print("User added in group on last time: " + str(delta_date))
 
